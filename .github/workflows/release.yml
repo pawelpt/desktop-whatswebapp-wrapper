@@ -23,11 +23,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: "npm"
+
+      - name: Cache Electron + Electron Builder
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/electron
+            ~/.cache/electron-builder
+          key: ${{ runner.os }}-electron-cache-${{ hashFiles('package-lock.json') }}
 
       - name: Install dependencies
         run: npm install
 
       - name: Build application
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [[ "$RUNNER_OS" == "Linux" ]]; then npm run build:linux; fi
           if [[ "$RUNNER_OS" == "Windows" ]]; then npm run build:win; fi
@@ -40,7 +51,7 @@ jobs:
           path: dist/*
 
   release:
-    name: Publish Release
+    name: Create GitHub Release
     needs: build
     runs-on: ubuntu-latest
 
@@ -63,9 +74,20 @@ jobs:
           name: macOS-artifacts
           path: release/macOS
 
-      - name: Create GitHub Release
+      - name: Generate changelog
+        id: changelog
+        uses: metcalfc/changelog-generator@v4
+        with:
+          myToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          body: ${{ steps.changelog.outputs.changelog }}
+          draft: false
+          prerelease: false
           files: |
             release/Linux/*
             release/Windows/*
