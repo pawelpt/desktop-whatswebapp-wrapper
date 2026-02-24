@@ -25,3 +25,6 @@ You need NPM and Yarn to be installed on your system before building deb package
 * NPM  : https://nodejs.org/en/download/package-manager/
 * Yarn : https://yarnpkg.com/lang/en/docs/install/
 
+## Build & Installation
+
+See [INSTALL.md](INSTALL.md) for detailed installation instructions.
