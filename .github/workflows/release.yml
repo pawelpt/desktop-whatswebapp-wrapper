@@ -14,6 +14,13 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            command: linux
+          - os: windows-latest
+            command: win
+          - os: macos-latest
+            command: mac
 
     steps:
       - name: Checkout repository
@@ -39,10 +46,7 @@ jobs:
       - name: Build application
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if [[ "$RUNNER_OS" == "Linux" ]]; then npm run build:linux; fi
-          if [[ "$RUNNER_OS" == "Windows" ]]; then npm run build:win; fi
-          if [[ "$RUNNER_OS" == "macOS" ]]; then npm run build:mac; fi
+        run: npm run build:${{ matrix.command }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
