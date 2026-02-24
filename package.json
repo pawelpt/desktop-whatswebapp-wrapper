@@ -1,0 +1,79 @@
+{
+  "name": "desktop-whatswebapp-wrapper",
+  "version": "1.0.1",
+  "description": "Desktop WhatsWebApp Wrapper Client for Linux, macOS and Windows. Built with Electron.",
+  "homepage": "https://github.com/pawelpt/desktop-whatswebapp-wrapper",
+  "main": "app/main.js",
+  "type": "module",
+  "author": "My Name",
+  "license": "MIT",
+  "scripts": {
+    "install:builder": "npm install --save-dev electron@40.0.0 && npm install --save-dev electron-builder@26.8.1 && npm install",
+    "dev": "electron .",
+    "build": "node scripts/check-platform.js",
+    "build:linux": "npx electron-builder --linux",
+    "build:mac": "node scripts/check-macos.js && npx electron-builder --mac",
+    "build:win": "npx electron-builder --win",
+    "clean": "rm -rf dist",
+    "clean:all": "rm -rf dist node_modules package-lock.json && npm install --save-dev electron@40.0.0 && npm install --save-dev electron-builder@26.8.1 && npm install",
+    "clean:cache": "rm -rf ~/.cache/electron-builder ~/.cache/electron",
+    "clean:deb": "rm -rf dist/*.deb",
+    "smart:audit": "npm audit --omit=dev || true",
+    "smart:audit:fix": "npm audit fix --omit=dev || true",
+    "smart:audit:fix:force": "npm audit fix --force --omit=dev || true"
+  },
+  "dependencies": {
+    "gettext-parser": "^9.0.1",
+    "node-gettext": "^3.0.1",
+    "process-nextick-args": "^2.0.1",
+    "util-deprecate": "^1.0.2"
+  },
+  "devDependencies": {
+    "electron": "^40.0.0",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "asar": true,
+    "appId": "com.whatswebapp.wrapper",
+    "productName": "whatswebapp-wrapper",
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+    "files": [
+      "!dist",
+      "!out",
+      "!release",
+      {
+        "from": "app",
+        "to": "app",
+        "filter": [
+          "**/*"
+        ]
+      },
+      "package.json",
+      "node_modules/**/*"
+    ],
+    "linux": {
+      "target": [
+        "deb"
+      ],
+      "category": "Network;Chat",
+      "maintainer": "My Name",
+      "icon": "app/assets/icon",
+      "desktop": {
+        "entry": "whatsapp-desktop.desktop"
+      }
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.social-networking",
+      "icon": "app/assets/icon/icon.icns"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "app/assets/icon/icon.ico"
+    }
+  }
+}
