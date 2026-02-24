@@ -16,7 +16,7 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         include:
           - os: ubuntu-latest
-            command: linux 
+            command: linux
           - os: windows-latest
             command: win
           - os: macos-latest
@@ -43,7 +43,7 @@ jobs:
       - name: Install + audit + build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: | 
+        run: |
           npm install
           npm run smart:audit
           npm run build:${{ matrix.command }}
@@ -86,14 +86,16 @@ jobs:
           myToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish Release
-        uses: softprops/action-gh-release@v2
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: ${{ github.ref_name }}
+          tag: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
           body: ${{ steps.changelog.outputs.changelog }}
           draft: false
           prerelease: false
-          files: |
+          allowUpdates: true
+          replacesArtifacts: true
+          artifacts: |
             release/Linux/*
             release/Windows/*
             release/macOS/*
