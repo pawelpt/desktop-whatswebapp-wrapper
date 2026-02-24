@@ -1,24 +1,21 @@
 # Build & Install desktop-whatswebapp-wrapper
-Open GNU Wrapper, for a popular comunicator
 
-* for:
-- Linux
-- Windows
-* optional:
-- MAC
+Follow these instructions to build and install `desktop-whatswebapp-wrapper` on your system.
 
 ## Build desktop-whatswebapp-wrapper Linux (Debian/Ubuntu/Mint) & Windows()
 
 git clone https://github.com/pawelpt/desktop-whatswebapp-wrapper.git
 -----
 
-## Build WhatsApp Debian/Ubuntu/Mint packages
+## Build Desktop WhatsWebApp Wraper for Debian/Ubuntu/Mint & EXE packages
 
-Follow these instructions to build and install `desktop-whatswebapp-wrapper` on your system.
+npm run build
 
-### Install NPM and Yarn
+## Build Desktop WhatsWebApp Wraper for only Debian/Ubuntu/Mint packages
 
-You need NPM and Yarn to be installed on your system before building deb package.
+npm run build:linux
 
-* NPM  : https://nodejs.org/en/download/package-manager/
-* Yarn : https://yarnpkg.com/lang/en/docs/install/
+## Build Desktop WhatsWebApp Wraper for only Win/EXE packages
+
+npm run build:win
+
