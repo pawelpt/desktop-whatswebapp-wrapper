@@ -51,16 +51,12 @@
       "package.json",
       "node_modules/**/*"
     ],
+
     "linux": {
-      "target": [
-        "deb"
-      ],
+      "target": ["deb"],
       "category": "Network;Chat",
       "maintainer": "My Name",
-      "icon": "app/assets/icon",
-      "desktop": {
-        "entry": "whatsapp-desktop.desktop"
-      }
+      "icon": "app/assets/icon"
     },
     "mac": {
       "target": [
