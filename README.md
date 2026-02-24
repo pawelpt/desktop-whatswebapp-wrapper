@@ -1,30 +1,62 @@
-# desktop-whatswebapp-wrapper
-Open GNU Wrapper, for a popular comunicator
+# WhatsWebApp Desktop Wrapper
 
-* for:
-- Linux
-- Windows
-* optional:
-- MAC
+Open GNU Desktop Wrapper for a popular communicator.  
+This project provides a lightweight, cross‑platform desktop client built with Electron.
 
-## Download WhatsApp
+Supported platforms:
 
-Donations
------
+- **Linux** (Debian/Ubuntu/Mint)
+- **Windows**
+- **macOS** (optional)
 
-:heart: Donations are always welcome :heart:.
+---
 
-## Build WhatsApp Debian/Ubuntu/Mint packages
+## 📥 Download
+
+Pre‑built packages are available on the Releases page:
+
+👉 https://github.com/pawelpt/desktop-whatswebapp-wrapper/releases
+
+---
+
+## ❤️ Donations
+
+If you find this project useful, consider supporting its development.
+
+**Donations are always welcome.** ❤️
+
+---
+
+# 🛠 Build WhatsWebApp Desktop Wrapper
 
 Follow these instructions to build and install `desktop-whatswebapp-wrapper` on your system.
 
-### Install NPM and Yarn
+---
 
-You need NPM and Yarn to be installed on your system before building deb package.
+## 📦 Requirements
 
-* NPM  : https://nodejs.org/en/download/package-manager/
-* Yarn : https://yarnpkg.com/lang/en/docs/install/
+Before building, install:
 
-## Build & Installation
+- **Node.js / NPM**  
+  https://nodejs.org/en/download/package-manager/
 
-See [INSTALL.md](INSTALL.md) for detailed installation instructions.
+- **Yarn (optional)**  
+  https://yarnpkg.com/lang/en/docs/install/
+
+---
+
+# 🏗 Build & Installation
+
+Detailed installation instructions are available in:
+
+👉 **[INSTALL.md](INSTALL.md)**
+
+Below is a quick overview.
+
+---
+
+## 🔧 Build for Linux + Windows
+
+```bash
+npm run build
+
