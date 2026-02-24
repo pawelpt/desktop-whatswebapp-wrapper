@@ -1,21 +1,44 @@
-# Build & Install desktop-whatswebapp-wrapper
+# Installation Guide
 
-Follow these instructions to build and install `desktop-whatswebapp-wrapper` on your system.
+This document explains how to install and run **WhatsWebApp Desktop Wrapper** on Linux, Windows, and optionally macOS.
 
-## Build desktop-whatswebapp-wrapper Linux (Debian/Ubuntu/Mint) & Windows()
+---
 
+## 📥 Downloading Releases
+
+If you prefer pre‑built packages, visit the Releases page:
+
+👉 https://github.com/pawelpt/desktop-whatswebapp-wrapper/releases
+
+Available formats:
+
+- **Linux (Debian/Ubuntu/Mint)** — `.deb`
+- **Windows** — `.exe`
+- **macOS** — `.dmg` (optional)
+
+---
+
+# 🛠 Building From Source
+
+Follow these instructions to build the application manually.
+
+---
+
+## 1. Clone the repository
+
+```bash
 git clone https://github.com/pawelpt/desktop-whatswebapp-wrapper.git
------
-
-## Build Desktop WhatsWebApp Wraper for Debian/Ubuntu/Mint & EXE packages
+cd desktop-whatswebapp-wrapper
+```
+## 2. Build Desktop WhatsWebApp Wraper for Debian/Ubuntu/Mint & EXE packages
 
 npm run build
 
-## Build Desktop WhatsWebApp Wraper for only Debian/Ubuntu/Mint packages
+## 3. Build Desktop WhatsWebApp Wraper for only Debian/Ubuntu/Mint packages
 
 npm run build:linux
 
-## Build Desktop WhatsWebApp Wraper for only Win/EXE packages
+## 4. Build Desktop WhatsWebApp Wraper for only Win/EXE packages
 
 npm run build:win
 
